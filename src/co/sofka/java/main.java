@@ -1,5 +1,8 @@
 package co.sofka.java;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 public class main {
@@ -49,13 +52,13 @@ public class main {
                   ejer12();
                     break;
                 case 13:
-                    ejer9();
+                    ejer13();
                     break;
                 case 14:
-                    ejer9();
+                    ejer14();
                     break;
                 case 15:
-                    ejer9();
+                    ejer15();
                     break;
                 case 16:
                     ejer9();
@@ -142,6 +145,7 @@ public class main {
     public static void ejer8(){
         Scanner sc= new Scanner(System.in);
         String dia;
+        System.out.println("ingrese un dia de la semana para saber si es laborable o no: Lunes, Martes,Miercoles,Jueves, Viernes, Sabado, Domingo");
         dia=sc.nextLine();
         switch (dia){
             case "Lunes":
@@ -172,13 +176,11 @@ public class main {
     public static void ejer9(){
         String texto="La sonrisa sera la mejor arma contra la tristeza ";
         System.out.println(texto);
-       String remplazado=texto.replace("a","e");
+        String remplazado=texto.replace("a","e");
         System.out.print("Ingrese una frase para concatenar: ");
         Scanner sc= new Scanner(System.in);
         String textoparaanidar=sc.nextLine();
-
         System.out.println("Frase final "+remplazado.concat(textoparaanidar));
-
     }
     public static void ejer10(){
         String texto,sinespacios;
@@ -220,7 +222,7 @@ public class main {
             if (largoCadena1<largoCadena2) {
                 int i;
                 for (i = 0; i < largoCadena1; i++) { //recorro el hasta que termine el texto 1
-                    System.out.println("cadena 1 y 2 posicion "+i+" caracter:"+texto1.charAt(i) + texto2.charAt(i));
+                    System.out.println("cadena 1 y 2 posicion "+i+" caracter:"+texto1.charAt(i) +"  "+ texto2.charAt(i));
                 }
                 System.out.println("el contenido del string 1 termino en la posicion "+largoCadena1);
                 System.out.println("por lo que no son iguales");
@@ -228,7 +230,7 @@ public class main {
             }else if (largoCadena1>largoCadena2) {
                 int i;
                 for (i = 0; i < largoCadena2; i++) { //recorro el hasta que termine el texto 1
-                    System.out.println("cadena 1 y 2 posicion "+i+" caracter:"+texto1.charAt(i) + texto2.charAt(i));
+                    System.out.println("cadena 1 y 2 posicion "+i+" caracter:"+texto1.charAt(i) +"  "+ texto2.charAt(i));
                 }
                 System.out.println("el contenido del string 2 termino en la posicion "+largoCadena2);
                 System.out.println("por lo que no son iguales");
@@ -247,9 +249,68 @@ public class main {
                 System.out.println("son distintas las frases ingresadas:");
                 int i;
                 for (i = 0; i < largoCadena2; i++) { //recorro el hasta que termine el texto 1
-                    System.out.println("cadena 1 y 2 posicion "+i+" caracter:"+texto1.charAt(i) + texto2.charAt(i));
+                    System.out.println("cadena 1 y 2 posicion "+i+" caracter:"+texto1.charAt(i)+"  "+texto2.charAt(i));
                 }
             }
         }
     }
+    public static void ejer13(){
+        Date fecha = Calendar.getInstance().getTime();
+        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        System.out.println("fecha actual: "+dateformat.format(fecha));
+    }
+    public static void ejer14(){
+        Scanner sc= new Scanner(System.in);
+        int numeroingresado;
+        System.out.println("ingrese un numero para contar hasta el 1000:");
+        numeroingresado=sc.nextInt();
+        for (int i=numeroingresado; i <= 1000; i+=2) {
+            System.out.println(i);
+        }
+    }
+    public static void ejer15(){
+        boolean seguir=true;
+        Scanner sc= new Scanner(System.in);
+        String menu=("****** GESTION CINEMATOGRÁFICA ********\n" +
+                "   1-NUEVO ACTOR\n" +
+                "   2-BUSCAR ACTOR\n" +
+                "   3-ELIMINAR ACTOR\n" +
+                "   4-MODIFICAR ACTOR\n" +
+                "   5-VER TODOS LOS ACTORES\n" +
+                "   6- VER PELICULAS DE LOS ACTORES\n" +
+                "   7-VER CATEGORIA DE LAS PELICULAS DE LOS ACTORES\n" +
+                "   8-SALIR");
+        int opcion=0;
+        System.out.println(menu);
+        do {
+
+            opcion=sc.nextInt();
+        switch (opcion){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                System.out.println("Usted salio del menu");
+                seguir=false;
+                break;
+            default:
+
+                System.out.println("OPCION INCORRECTO");
+                System.out.println(menu);
+                break;
+        }
+        }while (seguir);
+    }
+
 }
