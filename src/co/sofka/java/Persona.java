@@ -17,7 +17,7 @@ private double alturacm=0;
     public Persona(String nombre, int edad, char genero) {
         this.nombre = nombre;
         this.edad = edad;
-        this.genero = genero;
+        this.genero = comprobarSexo(genero);
         this.dni=this.generaDNI();
     }
 
@@ -65,22 +65,9 @@ private double alturacm=0;
         this.nombre = nombre;
         this.edad = edad;
         this.dni = generaDNI();
-        this.genero = genero;
+        this.genero = comprobarSexo(genero);
         this.peso = peso;
         this.alturacm = alturacm;
-    }
-
-
-
-
-    public char comprobarSexo(char sexo){
-        if(this.genero=='F' || this.genero=='M'){
-          if(this.genero=='M')
-              return 'M';
-              else return 'F';
-        }else{
-            return 'H';
-        }
     }
 
     public String toString(){
@@ -91,7 +78,11 @@ private double alturacm=0;
        char genero =this.getGenero();
         int peso = this.getPeso();
         double alturacm= this.getAlturacm();
-        return    todo.concat(nombre+" edad"+String.valueOf(edad)+" años, dni "+String.valueOf(dni)+", genero"+genero+", peso "+String.valueOf(peso)+"kg, altura"+alturacm+"m");
+        return   todo.concat(nombre+" Edad:"+String.valueOf(edad)+
+                " años \n Dni "+String.valueOf(dni)+"" +
+                " \n Genero"+genero+"" +
+                "\n Peso "+String.valueOf(peso)+"kg " +
+                "\n Altura"+alturacm+"m");
 
 
     }
@@ -100,5 +91,14 @@ private double alturacm=0;
         return (int) dni;
     }
 
+    private char comprobarSexo(char sexo){
+        if(sexo=='H' || sexo=='M'){
+            if(sexo=='M')
+                return  'M';
+            else  return  'H';
+        }else{
+           return 'H';
 
+        }
+    }
 }

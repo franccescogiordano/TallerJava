@@ -24,4 +24,18 @@ public class ControladorPersona {
             return true;
         else return false;
     }
+
+
+    public  void comprobarPesoYEdad(Persona persona){
+        if (calcularIMC(persona)==1)//1 sobre peso 0 normal -1 flaco
+            System.out.println(persona.getNombre()+" tiene sobre peso");
+        else if(calcularIMC(persona)==0)
+            System.out.println(persona.getNombre()+" tiene peso normal");
+        else if(calcularIMC(persona)==-1)
+            System.out.println(persona.getNombre()+" el peso esta por debajo de lo saludable");
+        if(esMayorDeEdad(persona))
+            System.out.println(persona.getNombre()+" es mayor de edad");
+        else  System.out.println(persona.getNombre()+" es menor de edad");
+    }
+
 }

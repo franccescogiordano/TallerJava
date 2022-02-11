@@ -321,35 +321,29 @@ public class main {
         Scanner sc= new Scanner(System.in);
         System.out.println("Ingrese nombre");
         String nombre=sc.nextLine();
+        System.out.println("Ingrese sexo: M o H");
+        char generochar=sc.next().charAt(0);
         System.out.println("Ingrese edad");
         int edad=sc.nextInt();
-        System.out.println("Ingrese sexo");
-      //  String genero= sc.nextLine();
-      //  char generochar=genero.charAt(0);
         System.out.println("Ingrese el peso");
         int peso=sc.nextInt();
         System.out.println("Ingrese altura en metros");
         double altura=sc.nextDouble();
-        //String nombre, int edad, char genero, int peso, double alturacm
-        Persona persona=new Persona(nombre,edad,'M',peso,altura);
-        Persona persona2= new Persona(nombre,edad,'M');
+        Persona persona=new Persona(nombre,edad,generochar,peso,altura);
+        Persona persona2= new Persona(nombre,edad,generochar);
         Persona persona3=new Persona();
         persona3.setNombre("Antonio Banderas");
         persona3.setEdad(94);
         persona3.setAlturacm(4.98);
         persona3.setPeso(400);
+        persona3.setGenero('H');
 
-        if (ctrlPer.calcularIMC(persona)==1)//1 sobre peso 0 normal -1 flaco
-            System.out.println(persona.getNombre()+" tiene sobre peso");
-            else if(ctrlPer.calcularIMC(persona)==0)
-            System.out.println(persona.getNombre()+"tiene peso normal");
-            else if(ctrlPer.calcularIMC(persona)==-1)
-            System.out.println(persona.getNombre()+" el peso esta por debajo de lo saludable");
-
-            if(ctrlPer.esMayorDeEdad(persona))
-                System.out.println(persona.getNombre()+" es mayor de edad");
-            else  System.out.println(persona.getNombre()+" es menor de edad");
+        ctrlPer.comprobarPesoYEdad(persona);
+        ctrlPer.comprobarPesoYEdad(persona2);
+        ctrlPer.comprobarPesoYEdad(persona3);
 
         System.out.println(persona.toString());
+        System.out.println(persona2.toString());
+        System.out.println(persona3.toString());
     }
 }
