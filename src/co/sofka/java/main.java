@@ -63,7 +63,6 @@ public class main {
                     ejer15();
                     break;
                 case 16:
-                   // Persona per=new Persona();
                     ejer16();
                     break;
                 case 17:
@@ -346,4 +345,5 @@ public class main {
         System.out.println(persona2.toString());
         System.out.println(persona3.toString());
     }
+
 }
