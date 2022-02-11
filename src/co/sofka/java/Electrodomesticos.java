@@ -2,7 +2,9 @@ package co.sofka.java;
 
 import java.util.Locale;
 
+
 public class Electrodomesticos {
+    private final String colorblanco="blanco";
     private int precio_base;
     private String color;
     private char consumo_energetico;
@@ -17,7 +19,7 @@ public class Electrodomesticos {
 
     public Electrodomesticos() {
         this.precio_base = 100;
-        this.color = "blanco";
+        this.color = colorblanco;
         this.peso = 5;
         this.consumo_energetico = 'F';
     }
@@ -29,8 +31,8 @@ public class Electrodomesticos {
 
     public Electrodomesticos(int precio_base, String color, char consumo_energetico, int peso) {
         this.precio_base = precio_base;
-        this.color = color;
-        this.consumo_energetico = consumo_energetico;
+        this.color = comprobarColor(color);
+        this.consumo_energetico = comprobarConsumoEnergetico(consumo_energetico);
         this.peso = peso;
     }
 
@@ -63,9 +65,9 @@ public class Electrodomesticos {
     }
 
     private String comprobarColor(String color) {
-        String colores[] = {"blanco", "negro", "rojo", "azul", "gris"};
+        String colores[] = {colorblanco, "negro", "rojo", "azul", "gris"};
         for (int i = 0; i < colores.length; i++) {
-            if (colores.equals(color.toLowerCase(Locale.ROOT)))
+            if (colores.equals(color.toLowerCase()))
                 return color;
         }
         return "blanco";
@@ -94,6 +96,8 @@ public class Electrodomesticos {
                 break;
             case 'F':
                 preciofinal = preciobase + 10;
+                break;
+            default:
                 break;
         }
 
