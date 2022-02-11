@@ -1,5 +1,7 @@
 package co.sofka.java;
 
+import co.sofka.java.Controladores.ControladorPersona;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -61,7 +63,8 @@ public class main {
                     ejer15();
                     break;
                 case 16:
-                    ejer9();
+                   // Persona per=new Persona();
+                    ejer16();
                     break;
                 case 17:
                     ejer9();
@@ -202,7 +205,7 @@ public class main {
                 cantidadVocales++;
             }
         }
-        System.out.println("La frase contiene: "+cantidadVocales+" vocales");
+        System.out.println("La frase contiene: "+cantidadVocales+" vocales"+ "y el largo de la frase es: "+largo);
     }
     public static void ejer12(){
         String texto1,texto2;
@@ -313,4 +316,40 @@ public class main {
         }while (seguir);
     }
 
+    public static void ejer16(){
+        ControladorPersona ctrlPer= new ControladorPersona();
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Ingrese nombre");
+        String nombre=sc.nextLine();
+        System.out.println("Ingrese edad");
+        int edad=sc.nextInt();
+        System.out.println("Ingrese sexo");
+      //  String genero= sc.nextLine();
+      //  char generochar=genero.charAt(0);
+        System.out.println("Ingrese el peso");
+        int peso=sc.nextInt();
+        System.out.println("Ingrese altura en metros");
+        double altura=sc.nextDouble();
+        //String nombre, int edad, char genero, int peso, double alturacm
+        Persona persona=new Persona(nombre,edad,'M',peso,altura);
+        Persona persona2= new Persona(nombre,edad,'M');
+        Persona persona3=new Persona();
+        persona3.setNombre("Antonio Banderas");
+        persona3.setEdad(94);
+        persona3.setAlturacm(4.98);
+        persona3.setPeso(400);
+
+        if (ctrlPer.calcularIMC(persona)==1)//1 sobre peso 0 normal -1 flaco
+            System.out.println(persona.getNombre()+" tiene sobre peso");
+            else if(ctrlPer.calcularIMC(persona)==0)
+            System.out.println(persona.getNombre()+"tiene peso normal");
+            else if(ctrlPer.calcularIMC(persona)==-1)
+            System.out.println(persona.getNombre()+" el peso esta por debajo de lo saludable");
+
+            if(ctrlPer.esMayorDeEdad(persona))
+                System.out.println(persona.getNombre()+" es mayor de edad");
+            else  System.out.println(persona.getNombre()+" es menor de edad");
+
+        System.out.println(persona.toString());
+    }
 }
