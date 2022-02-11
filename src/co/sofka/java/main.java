@@ -48,10 +48,10 @@ public class main {
                     ejer10();
                     break;
                 case 11:
-                
+
                     break;
                 case 12:
-                  ejer12();
+                    ejer12();
                     break;
                 case 13:
                     ejer13();
@@ -66,7 +66,7 @@ public class main {
                     ejer16();
                     break;
                 case 17:
-                    ejer9();
+                    ejer17();
                     break;
                 case 18:
                     ejer9();
@@ -135,21 +135,23 @@ public class main {
 
         }
     }
-    public static void ejer7(){
-        Scanner sc= new Scanner(System.in);
-        int numero=-1;
-        do{
+
+    public static void ejer7() {
+        Scanner sc = new Scanner(System.in);
+        int numero = -1;
+        do {
             System.out.println("Porfavor, ingrese un numero mayor o igual a 0");
-           numero = sc.nextInt();
-        }while (numero<0);
-        System.out.println("numero ingresado: "+numero);
+            numero = sc.nextInt();
+        } while (numero < 0);
+        System.out.println("numero ingresado: " + numero);
     }
-    public static void ejer8(){
-        Scanner sc= new Scanner(System.in);
+
+    public static void ejer8() {
+        Scanner sc = new Scanner(System.in);
         String dia;
         System.out.println("ingrese un dia de la semana para saber si es laborable o no: Lunes, Martes,Miercoles,Jueves, Viernes, Sabado, Domingo");
-        dia=sc.nextLine();
-        switch (dia){
+        dia = sc.nextLine();
+        switch (dia) {
             case "Lunes":
                 System.out.println("Es un dia laboral");
                 break;
@@ -175,105 +177,112 @@ public class main {
                 System.out.println("Ingrese un dia de forma correcta.");
         }
     }
-    public static void ejer9(){
-        String texto="La sonrisa sera la mejor arma contra la tristeza ";
+
+    public static void ejer9() {
+        String texto = "La sonrisa sera la mejor arma contra la tristeza ";
         System.out.println(texto);
-        String remplazado=texto.replace("a","e");
+        String remplazado = texto.replace("a", "e");
         System.out.print("Ingrese una frase para concatenar: ");
-        Scanner sc= new Scanner(System.in);
-        String textoparaanidar=sc.nextLine();
-        System.out.println("Frase final "+remplazado.concat(textoparaanidar));
+        Scanner sc = new Scanner(System.in);
+        String textoparaanidar = sc.nextLine();
+        System.out.println("Frase final " + remplazado.concat(textoparaanidar));
     }
-    public static void ejer10(){
-        String texto,sinespacios;
-        Scanner sc= new Scanner(System.in);
+
+    public static void ejer10() {
+        String texto, sinespacios;
+        Scanner sc = new Scanner(System.in);
         System.out.println("Porfavor ingrese un texto");
-        texto=sc.nextLine();
-        sinespacios=texto.replace(" ","");
-        System.out.println("el texto sin espacios es: "+sinespacios);
+        texto = sc.nextLine();
+        sinespacios = texto.replace(" ", "");
+        System.out.println("el texto sin espacios es: " + sinespacios);
     }
-    public static void ejer11(){
-        String texto,sinespacios;
-        Scanner sc= new Scanner(System.in);
+
+    public static void ejer11() {
+        String texto, sinespacios;
+        Scanner sc = new Scanner(System.in);
         System.out.println("Porfavor ingrese una frase");
-        texto=sc.nextLine();
-        int largo=texto.length();
-        int cantidadVocales=0;
-        for(int x=0;x<texto.length();x++) {
-            if ((texto.charAt(x)=='a') || (texto.charAt(x)=='e') || (texto.charAt(x)=='i') || (texto.charAt(x)=='o') || (texto.charAt(x)=='u')){
+        texto = sc.nextLine();
+        int largo = texto.length();
+        int cantidadVocales = 0;
+        for (int x = 0; x < texto.length(); x++) {
+            if ((texto.charAt(x) == 'a') || (texto.charAt(x) == 'e') || (texto.charAt(x) == 'i') || (texto.charAt(x) == 'o') || (texto.charAt(x) == 'u')) {
                 cantidadVocales++;
             }
         }
-        System.out.println("La frase contiene: "+cantidadVocales+" vocales"+ "y el largo de la frase es: "+largo);
+        System.out.println("La frase contiene: " + cantidadVocales + " vocales" + "y el largo de la frase es: " + largo);
     }
-    public static void ejer12(){
-        String texto1,texto2;
-        Scanner sc= new Scanner(System.in);
+
+    public static void ejer12() {
+        String texto1, texto2;
+        Scanner sc = new Scanner(System.in);
         int largoCadena1 = 0;
         int largoCadena2 = 0;
         System.out.println("Porfavor ingrese dos frases, para ver si son iguales o sus diferencias");
         System.out.print("texto 1:");
-        texto1=sc.nextLine();
+        texto1 = sc.nextLine();
         System.out.print("texto 2:");
-        texto2=sc.nextLine();
-        largoCadena1=texto1.length();
-        largoCadena2=texto2.length();
+        texto2 = sc.nextLine();
+        largoCadena1 = texto1.length();
+        largoCadena2 = texto2.length();
 
-        if (largoCadena1!=largoCadena2){
+        if (largoCadena1 != largoCadena2) {
             System.out.println("las cadenas son distintas, veamos sus diferencias");
-            if (largoCadena1<largoCadena2) {
+            if (largoCadena1 < largoCadena2) {
                 int i;
                 for (i = 0; i < largoCadena1; i++) { //recorro el hasta que termine el texto 1
-                    System.out.println("cadena 1 y 2 posicion "+i+" caracter:"+texto1.charAt(i) +"  "+ texto2.charAt(i));
+                    System.out.println("cadena 1 y 2 posicion " + i + " caracter:" + texto1.charAt(i) + "  " + texto2.charAt(i));
                 }
-                System.out.println("el contenido del string 1 termino en la posicion "+largoCadena1);
+                System.out.println("el contenido del string 1 termino en la posicion " + largoCadena1);
                 System.out.println("por lo que no son iguales");
 
-            }else if (largoCadena1>largoCadena2) {
+            } else if (largoCadena1 > largoCadena2) {
                 int i;
                 for (i = 0; i < largoCadena2; i++) { //recorro el hasta que termine el texto 1
-                    System.out.println("cadena 1 y 2 posicion "+i+" caracter:"+texto1.charAt(i) +"  "+ texto2.charAt(i));
+                    System.out.println("cadena 1 y 2 posicion " + i + " caracter:" + texto1.charAt(i) + "  " + texto2.charAt(i));
                 }
-                System.out.println("el contenido del string 2 termino en la posicion "+largoCadena2);
+                System.out.println("el contenido del string 2 termino en la posicion " + largoCadena2);
                 System.out.println("por lo que no son iguales");
-                }
+            }
 
-        }else{
-            boolean soniguales=true;
+        } else {
+            boolean soniguales = true;
             for (int i = 0; i < largoCadena1; i++) {
-                if(texto1.charAt(i)!=texto2.charAt(i)){
-                    soniguales=false;
+                if (texto1.charAt(i) != texto2.charAt(i)) {
+                    soniguales = false;
                 }
             }
-            if(soniguales){
+            if (soniguales) {
                 System.out.println("son iguales las frases ingresadas");
-            }else{
+            } else {
                 System.out.println("son distintas las frases ingresadas:");
                 int i;
                 for (i = 0; i < largoCadena2; i++) { //recorro el hasta que termine el texto 1
-                    System.out.println("cadena 1 y 2 posicion "+i+" caracter:"+texto1.charAt(i)+"  "+texto2.charAt(i));
+                    System.out.println("cadena 1 y 2 posicion " + i + " caracter:" + texto1.charAt(i) + "  " + texto2.charAt(i));
                 }
             }
         }
     }
-    public static void ejer13(){
+
+    public static void ejer13() {
         Date fecha = Calendar.getInstance().getTime();
         SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        System.out.println("fecha actual: "+dateformat.format(fecha));
+        System.out.println("fecha actual: " + dateformat.format(fecha));
     }
-    public static void ejer14(){
-        Scanner sc= new Scanner(System.in);
+
+    public static void ejer14() {
+        Scanner sc = new Scanner(System.in);
         int numeroingresado;
         System.out.println("ingrese un numero para contar hasta el 1000:");
-        numeroingresado=sc.nextInt();
-        for (int i=numeroingresado; i <= 1000; i+=2) {
+        numeroingresado = sc.nextInt();
+        for (int i = numeroingresado; i <= 1000; i += 2) {
             System.out.println(i);
         }
     }
-    public static void ejer15(){
-        boolean seguir=true;
-        Scanner sc= new Scanner(System.in);
-        String menu=("****** GESTION CINEMATOGRÁFICA ********\n" +
+
+    public static void ejer15() {
+        boolean seguir = true;
+        Scanner sc = new Scanner(System.in);
+        String menu = ("****** GESTION CINEMATOGRÁFICA ********\n" +
                 "   1-NUEVO ACTOR\n" +
                 "   2-BUSCAR ACTOR\n" +
                 "   3-ELIMINAR ACTOR\n" +
@@ -282,55 +291,55 @@ public class main {
                 "   6- VER PELICULAS DE LOS ACTORES\n" +
                 "   7-VER CATEGORIA DE LAS PELICULAS DE LOS ACTORES\n" +
                 "   8-SALIR");
-        int opcion=0;
+        int opcion = 0;
         System.out.println(menu);
         do {
 
-            opcion=sc.nextInt();
-        switch (opcion){
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            case 7:
-                break;
-            case 8:
-                System.out.println("Usted salio del menu");
-                seguir=false;
-                break;
-            default:
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    System.out.println("Usted salio del menu");
+                    seguir = false;
+                    break;
+                default:
 
-                System.out.println("OPCION INCORRECTO");
-                System.out.println(menu);
-                break;
-        }
-        }while (seguir);
+                    System.out.println("OPCION INCORRECTO");
+                    System.out.println(menu);
+                    break;
+            }
+        } while (seguir);
     }
 
-    public static void ejer16(){
-        ControladorPersona ctrlPer= new ControladorPersona();
-        Scanner sc= new Scanner(System.in);
+    public static void ejer16() {
+        ControladorPersona ctrlPer = new ControladorPersona();
+        Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese nombre");
-        String nombre=sc.nextLine();
+        String nombre = sc.nextLine();
         System.out.println("Ingrese sexo: M o H");
-        char generochar=sc.next().charAt(0);
+        char generochar = sc.next().charAt(0);
         System.out.println("Ingrese edad");
-        int edad=sc.nextInt();
+        int edad = sc.nextInt();
         System.out.println("Ingrese el peso");
-        int peso=sc.nextInt();
+        int peso = sc.nextInt();
         System.out.println("Ingrese altura en metros");
-        double altura=sc.nextDouble();
-        Persona persona=new Persona(nombre,edad,generochar,peso,altura);
-        Persona persona2= new Persona(nombre,edad,generochar);
-        Persona persona3=new Persona();
+        double altura = sc.nextDouble();
+        Persona persona = new Persona(nombre, edad, generochar, peso, altura);
+        Persona persona2 = new Persona(nombre, edad, generochar);
+        Persona persona3 = new Persona();
         persona3.setNombre("Antonio Banderas");
         persona3.setEdad(94);
         persona3.setAlturacm(4.98);
@@ -346,4 +355,43 @@ public class main {
         System.out.println(persona3.toString());
     }
 
+    public static void ejer17() {
+        //int precio_base, String color, char consumo_energetico, int peso, int carga
+        Electrodomesticos[] electrodomesticos = new Electrodomesticos[10];
+        electrodomesticos[0] = new Lavadora(100, "azul", 'A', 2000, 5000);
+        electrodomesticos[1] = new Lavadora(100, "blanco", 'F', 2000, 5000);
+        electrodomesticos[2] = new Lavadora(100, "GRIS", 'C', 2000, 5000);
+        electrodomesticos[3] = new Lavadora(100, "ROJO", 'E', 2000, 5000);
+        electrodomesticos[4] = new Electrodomesticos(10000,"rojo",'F',2000);
+        electrodomesticos[5] = new Television(100, "negro", 'B', 2000, 5000, true);
+        electrodomesticos[6] = new Television(100, "negro", 'B', 2000, 5000, true);
+        electrodomesticos[7] = new Television(100, "negro", 'B', 2000, 5000, true);
+        electrodomesticos[8] = new Television(100, "rojo", 'B', 2000, 5000, true);
+        electrodomesticos[9] = new Television(100, "morado", 'B', 2000, 5000, true);
+
+
+        for (Electrodomesticos x : electrodomesticos) {
+            x.preciofinal();
+        }
+        int preciotvs = 0;
+        int preciolavas = 0;
+        int preciototal=0;
+        for (Electrodomesticos x : electrodomesticos) {
+            if (x instanceof Television) {
+                preciotvs += x.getPrecio_base();
+            }else if (x instanceof Lavadora) {
+                preciolavas += x.getPrecio_base();
+            }
+
+            preciototal+= x.getPrecio_base();
+
+        }
+
+        System.out.println("el precio de los televisores es $"
+                +preciotvs
+                +"\n el precio de los lavaropa es $"
+                +preciolavas+
+                "\n el precio total es$"+preciototal);
+
+    }
 }

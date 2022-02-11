@@ -49,6 +49,9 @@ public class Electrodomesticos {
     public int getPeso() {
         return peso;
     }
+    public void setPrecio(int precio) {
+        this.precio_base=precio;
+    }
 
     private char comprobarConsumoEnergetico(char letra) {
         char Letras[] = {'A', 'B', 'C', 'D', 'E', 'F'};
@@ -105,4 +108,5 @@ public class Electrodomesticos {
 
         this.precio_base = preciofinal;
     }
+
 }
