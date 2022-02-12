@@ -1,6 +1,8 @@
 package co.sofka.java;
 
 import co.sofka.java.Controladores.ControladorPersona;
+import co.sofka.java.Series.Series;
+import co.sofka.java.Series.Videojuego;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,6 +11,7 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
+
         String seguir;
         Scanner sc = new Scanner(System.in);
         int opcion = -1;
@@ -69,7 +72,7 @@ public class main {
                     ejer17();
                     break;
                 case 18:
-                    ejer9();
+                    ejer18();
                     break;
                 default:
                     opcion = 1;
@@ -393,5 +396,73 @@ public class main {
                 +preciolavas+
                 "\n el precio total es$"+preciototal);
 
+    }
+    public static void ejer18(){
+        Series series[]= new Series[5];
+        Videojuego juegos[]= new Videojuego[5];
+
+        series[0]=new Series();
+        series[1]=new Series();
+        series[2]=new Series("Arrow","DC");
+        series[3]=new Series("Hawkeye","Marvel");
+        //String titulo, int numero_de_temporadas, String genero, String creador
+        series[4]=new Series("Loki",1,"Ciencia Ficcion","Marvel");
+
+        juegos[0]=new Videojuego("CS GO",1000);
+        juegos[1]=new Videojuego("Minecraft",60);
+        juegos[2]=new Videojuego();
+        juegos[3]=new Videojuego();
+        juegos[4]=new Videojuego("God Of War",60000,"Accion","Sony");
+
+        juegos[2].entregar();
+        juegos[3].entregar();
+        series[4].entregar();
+        series[0].entregar();
+        System.out.println("Series entregadas:"+ contarEntregasSeries(series));
+        System.out.println("Juegos entregados:"+ contarEntregasJuegos(juegos));
+        videojuegoConMasHoras(juegos);
+        serieMasLarga(series);
+
+    }
+    public static int contarEntregasJuegos(Videojuego juegos[]){
+        int total=0;
+        for (Videojuego juego:juegos) {
+        if(juego.isEntregado()) {
+            total++;
+            System.out.println(juego.getTitulo()+" Juego Entregado");
+        }
+        }
+        return total;
+    }
+    public static int contarEntregasSeries(Series series[]){
+        int total=0;
+        for (Series serie:series) {
+        if(serie.isEntregado()) {
+            total++;
+            System.out.println(serie.getTitulo()+" Serie Entregada");
+        }
+        }
+        return total;
+    }
+    public static void videojuegoConMasHoras(Videojuego juegos[]){
+        Videojuego juegomayor=new Videojuego();
+        juegomayor.setHorasestimadas(0);
+        for (Videojuego juego:juegos) {
+        if(juegomayor.getHorasestimadas()<juego.getHorasestimadas()) {
+            juegomayor = juego;
+        }
+        }
+        System.out.println("el juego mas largo es "+juegomayor.toString());
+    }
+
+    public static void serieMasLarga(Series series[]){
+        Series serielarga=new Series();
+        serielarga.setNumero_de_temporadas(0);
+        for (Series serie:series) {
+            if(serielarga.getNumero_de_temporadas()<serie.getNumero_de_temporadas()) {
+                serielarga = serie;
+            }
+        }
+        System.out.println("la serie mas larga es "+serielarga.toString());
     }
 }
