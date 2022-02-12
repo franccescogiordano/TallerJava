@@ -93,7 +93,10 @@ public class Series implements Entregable{
     }
 
     @Override
-    public void compareTo(Object a) {
-
+    public Object compareTo(Object a) {
+    if(this.getNumero_de_temporadas()< ((Series) a).getNumero_de_temporadas()){
+           return a;
+        }
+    return this;
     }
 }

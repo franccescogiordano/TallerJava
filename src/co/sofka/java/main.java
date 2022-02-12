@@ -51,7 +51,7 @@ public class main {
                     ejer10();
                     break;
                 case 11:
-
+                    ejer11();
                     break;
                 case 12:
                     ejer12();
@@ -212,7 +212,7 @@ public class main {
                 cantidadVocales++;
             }
         }
-        System.out.println("La frase contiene: " + cantidadVocales + " vocales" + "y el largo de la frase es: " + largo);
+        System.out.println("La frase contiene: " + cantidadVocales + " vocales" + " y el largo de la frase es: " + largo);
     }
 
     public static void ejer12() {
@@ -448,9 +448,7 @@ public class main {
         Videojuego juegomayor=new Videojuego();
         juegomayor.setHorasestimadas(0);
         for (Videojuego juego:juegos) {
-        if(juegomayor.getHorasestimadas()<juego.getHorasestimadas()) {
-            juegomayor = juego;
-        }
+            juegomayor=(Videojuego) juegomayor.compareTo(juego);
         }
         System.out.println("el juego mas largo es "+juegomayor.toString());
     }
@@ -459,10 +457,9 @@ public class main {
         Series serielarga=new Series();
         serielarga.setNumero_de_temporadas(0);
         for (Series serie:series) {
-            if(serielarga.getNumero_de_temporadas()<serie.getNumero_de_temporadas()) {
-                serielarga = serie;
-            }
+          serielarga=(Series) serielarga.compareTo(serie);
         }
         System.out.println("la serie mas larga es "+serielarga.toString());
     }
+
 }

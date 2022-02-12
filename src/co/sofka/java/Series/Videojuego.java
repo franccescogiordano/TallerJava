@@ -88,7 +88,10 @@ public class Videojuego implements Entregable {
     }
 
     @Override
-    public void compareTo(Object a) {
-
+    public Object compareTo(Object a) {
+        if(this.getHorasestimadas()< ((Videojuego) a).getHorasestimadas()){
+            return a;
+        }
+        return this;
     }
 }
