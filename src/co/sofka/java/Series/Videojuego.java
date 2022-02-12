@@ -8,19 +8,19 @@ public class Videojuego implements Entregable {
     private String compania;
 
     public Videojuego() {
-        this.titulo="League Of Legends";
-        this.horasestimadas=10;
-        this.entregado=false;
-        this.genero="MMORPG";
-        this.compania="Riot Games";
+        this.titulo = "League Of Legends";
+        this.horasestimadas = 10;
+        this.entregado = false;
+        this.genero = "MMORPG";
+        this.compania = "Riot Games";
     }
 
     public Videojuego(String titulo, int horasestimadas) {
         this.titulo = titulo;
         this.horasestimadas = horasestimadas;
-        this.genero="MMORPG";
-        this.compania="Riot Games";
-        this.entregado=false;
+        this.genero = "MMORPG";
+        this.compania = "Riot Games";
+        this.entregado = false;
     }
 
     public Videojuego(String titulo, int horasestimadas, String genero, String compania) {
@@ -28,7 +28,7 @@ public class Videojuego implements Entregable {
         this.horasestimadas = horasestimadas;
         this.genero = genero;
         this.compania = compania;
-        this.entregado=false;
+        this.entregado = false;
     }
 
     public String getTitulo() {
@@ -67,19 +67,19 @@ public class Videojuego implements Entregable {
     public String toString() {
         return
                 "titulo='" + titulo + '\'' +
-                ", horasestimadas=" + horasestimadas +
-                ", genero='" + genero + '\'' +
-                ", compania='" + compania + '\'';
+                        ", horasestimadas=" + horasestimadas +
+                        ", genero='" + genero + '\'' +
+                        ", compania='" + compania + '\'';
     }
 
     @Override
     public void entregar() {
-        this.entregado=true;
+        this.entregado = true;
     }
 
     @Override
     public void devolver() {
-        this.entregado=false;
+        this.entregado = false;
     }
 
     @Override
@@ -89,9 +89,6 @@ public class Videojuego implements Entregable {
 
     @Override
     public Object compareTo(Object a) {
-        if(this.getHorasestimadas()< ((Videojuego) a).getHorasestimadas()){
-            return a;
-        }
-        return this;
+        return this.getHorasestimadas() < ((Videojuego) a).getHorasestimadas() ? a : this;
     }
 }

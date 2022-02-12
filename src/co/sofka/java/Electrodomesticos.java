@@ -1,10 +1,17 @@
 package co.sofka.java;
 
-import java.util.Locale;
+
+import org.w3c.dom.ranges.Range;
+
+import java.awt.font.NumericShaper;
+import java.time.temporal.ValueRange;
+import java.util.*;
+
+import static java.util.Map.entry;
 
 
 public class Electrodomesticos {
-    private final String colorblanco="blanco";
+    private final String colorblanco = "blanco";
     private int precio_base;
     private String color;
     private char consumo_energetico;
@@ -13,8 +20,7 @@ public class Electrodomesticos {
 //Por defecto, el color será blanco,
 // el consumo energético será F, el precioBase es de 100 € y el peso de 5 kg.
 // Usa constantes para ello.
-
-    //Los colores disponibles son blancos, negro, rojo, azul y gris. No importa si el nombre está en mayúsculas o en minúsculas.
+// Los colores disponibles son blancos, negro, rojo, azul y gris. No importa si el nombre está en mayúsculas o en minúsculas.
 
 
     public Electrodomesticos() {
@@ -51,26 +57,19 @@ public class Electrodomesticos {
     public int getPeso() {
         return peso;
     }
+
     public void setPrecio(int precio) {
-        this.precio_base=precio;
+        this.precio_base = precio;
     }
 
     private char comprobarConsumoEnergetico(char letra) {
-        char Letras[] = {'A', 'B', 'C', 'D', 'E', 'F'};
-        for (int i = 0; i < Letras.length; i++) {
-            if (Letras[i] == letra)
-                return letra;
-        }
-        return 'F';
+        final List<Character> letras = List.of('A', 'B', 'C', 'D', 'E', 'F');
+        return letras.contains(letra) ? letra : 'F'; //ternario
     }
 
     private String comprobarColor(String color) {
-        String colores[] = {colorblanco, "negro", "rojo", "azul", "gris"};
-        for (int i = 0; i < colores.length; i++) {
-            if (colores.equals(color.toLowerCase()))
-                return color;
-        }
-        return "blanco";
+        final List<String> colores = List.of(colorblanco, "negro", "rojo", "azul", "gris");
+        return colores.contains(color) ? color : colorblanco; //ternario
     }
 
     public void preciofinal() {
@@ -78,39 +77,21 @@ public class Electrodomesticos {
         int preciofinal = 0;
         int p = this.peso;
         int preciobase = this.precio_base;
-        switch (consumo) {
-            case 'A':
-                preciofinal = preciobase + 100;
-                break;
-            case 'B':
-                preciofinal = preciobase + 80;
-                break;
-            case 'C':
-                preciofinal = preciobase + 60;
-                break;
-            case 'D':
-                preciofinal = preciobase + 50;
-                break;
-            case 'E':
-                preciofinal = preciobase + 30;
-                break;
-            case 'F':
-                preciofinal = preciobase + 10;
-                break;
-            default:
-                break;
+        final Map<Character, Integer> mapa = Map.ofEntries(
+                entry('A', 100),
+                entry('B', 80),
+                entry('C', 60), entry('D', 50),
+                entry('E', 30), entry('F', 10));
+        preciofinal = preciobase + mapa.get(consumo);
+        if (ValueRange.of(0, 19).isValidIntValue(p)) {
+            preciofinal += 10;
+        } else if (ValueRange.of(20, 49).isValidIntValue(p)) {
+            preciofinal += 50;
+        } else if (ValueRange.of(50, 79).isValidIntValue(p)) {
+            preciofinal += 80;
+        } else {
+            preciofinal += 100;
         }
-
-        if (p >= 0 && p <= 19) ;
-        preciofinal += 10;
-        if (p >= 20 && p <= 49) ;
-        preciofinal += 50;
-        if (p >= 50 && p <= 79) ;
-        preciofinal += 80;
-        if (p >= 80) ;
-        preciofinal += 100;
-
         this.precio_base = preciofinal;
     }
-
 }

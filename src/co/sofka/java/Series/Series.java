@@ -1,6 +1,6 @@
 package co.sofka.java.Series;
 
-public class Series implements Entregable{
+public class Series implements Entregable {
     private String titulo;
     private int numero_de_temporadas;
     private boolean entregado;
@@ -12,20 +12,20 @@ public class Series implements Entregable{
         de temporadas es de 3 temporadas y entregado false.
         El resto de atributos serán valores
         por defecto según el tipo del atributo.*/
-        this.numero_de_temporadas=3;
-        this.entregado=false;
-        this.titulo="Daredevil";
-        this.genero="Ciencia Ficción";
-        this.creador="Stan Lee";
+        this.numero_de_temporadas = 3;
+        this.entregado = false;
+        this.titulo = "Daredevil";
+        this.genero = "Ciencia Ficción";
+        this.creador = "Stan Lee";
 
     }
 
     public Series(String titulo, String creador) {
         this.titulo = titulo;
         this.creador = creador;
-        this.genero="Ciencia Ficción";
-        this.entregado=false;
-        this.numero_de_temporadas=3;
+        this.genero = "Ciencia Ficción";
+        this.entregado = false;
+        this.numero_de_temporadas = 3;
     }
 
     public Series(String titulo, int numero_de_temporadas, String genero, String creador) {
@@ -33,7 +33,7 @@ public class Series implements Entregable{
         this.numero_de_temporadas = numero_de_temporadas;
         this.genero = genero;
         this.creador = creador;
-        this.entregado=false;
+        this.entregado = false;
     }
 
     public String getTitulo() {
@@ -72,31 +72,28 @@ public class Series implements Entregable{
     public String toString() {
         return
                 "titulo='" + titulo + '\'' +
-                ", numero_de_temporadas=" + numero_de_temporadas +
-                ", genero='" + genero + '\'' +
-                ", creador='" + creador + '\'' ;
+                        ", numero_de_temporadas=" + numero_de_temporadas +
+                        ", genero='" + genero + '\'' +
+                        ", creador='" + creador + '\'';
     }
 
     @Override
     public void entregar() {
-        this.entregado=true;
+        this.entregado = true;
     }
 
     @Override
     public void devolver() {
-        this.entregado=false;
+        this.entregado = false;
     }
 
     @Override
     public boolean isEntregado() {
-       return this.entregado;
+        return this.entregado;
     }
 
     @Override
     public Object compareTo(Object a) {
-    if(this.getNumero_de_temporadas()< ((Series) a).getNumero_de_temporadas()){
-           return a;
-        }
-    return this;
+        return this.getNumero_de_temporadas() < ((Series) a).getNumero_de_temporadas() ? a : this;
     }
 }

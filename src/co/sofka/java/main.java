@@ -85,10 +85,9 @@ public class main {
             System.out.println("el " + valor1 + " es mayor que " + valor2);
         } else if (valor1 < valor2) {
             System.out.println("el " + valor2 + " es mayor que " + valor1);
-        } else if (valor1 == valor2) {
+        } else {
             System.out.println("el " + valor1 + " y " + valor2 + " son iguales");
         }
-
 
     }
 
@@ -361,11 +360,11 @@ public class main {
     public static void ejer17() {
         //int precio_base, String color, char consumo_energetico, int peso, int carga
         Electrodomesticos[] electrodomesticos = new Electrodomesticos[10];
-        electrodomesticos[0] = new Lavadora(100, "azul", 'A', 2000, 5000);
+        electrodomesticos[0] = new Lavadora(100, "azul", 'A', 19, 5000);
         electrodomesticos[1] = new Lavadora(100, "blanco", 'F', 2000, 5000);
         electrodomesticos[2] = new Lavadora(100, "GRIS", 'C', 2000, 5000);
         electrodomesticos[3] = new Lavadora(100, "ROJO", 'E', 2000, 5000);
-        electrodomesticos[4] = new Electrodomesticos(10000,"rojo",'F',2000);
+        electrodomesticos[4] = new Electrodomesticos(10000, "rojo", 'F', 2000);
         electrodomesticos[5] = new Television(100, "negro", 'B', 2000, 5000, true);
         electrodomesticos[6] = new Television(100, "negro", 'B', 2000, 5000, true);
         electrodomesticos[7] = new Television(100, "negro", 'B', 2000, 5000, true);
@@ -378,88 +377,92 @@ public class main {
         }
         int preciotvs = 0;
         int preciolavas = 0;
-        int preciototal=0;
+        int preciototal = 0;
         for (Electrodomesticos x : electrodomesticos) {
             if (x instanceof Television) {
                 preciotvs += x.getPrecio_base();
-            }else if (x instanceof Lavadora) {
+            } else if (x instanceof Lavadora) {
                 preciolavas += x.getPrecio_base();
             }
 
-            preciototal+= x.getPrecio_base();
+            preciototal += x.getPrecio_base();
 
         }
 
         System.out.println("el precio de los televisores es $"
-                +preciotvs
-                +"\n el precio de los lavaropa es $"
-                +preciolavas+
-                "\n el precio total es$"+preciototal);
+                + preciotvs
+                + "\n el precio de los lavaropa es $"
+                + preciolavas +
+                "\n el precio total es$" + preciototal);
 
     }
-    public static void ejer18(){
-        Series series[]= new Series[5];
-        Videojuego juegos[]= new Videojuego[5];
 
-        series[0]=new Series();
-        series[1]=new Series();
-        series[2]=new Series("Arrow","DC");
-        series[3]=new Series("Hawkeye","Marvel");
+    public static void ejer18() {
+        Series series[] = new Series[5];
+        Videojuego juegos[] = new Videojuego[5];
+
+        series[0] = new Series();
+        series[1] = new Series();
+        series[2] = new Series("Arrow", "DC");
+        series[3] = new Series("Hawkeye", "Marvel");
         //String titulo, int numero_de_temporadas, String genero, String creador
-        series[4]=new Series("Loki",1,"Ciencia Ficcion","Marvel");
+        series[4] = new Series("Loki", 1, "Ciencia Ficcion", "Marvel");
 
-        juegos[0]=new Videojuego("CS GO",1000);
-        juegos[1]=new Videojuego("Minecraft",60);
-        juegos[2]=new Videojuego();
-        juegos[3]=new Videojuego();
-        juegos[4]=new Videojuego("God Of War",60000,"Accion","Sony");
+        juegos[0] = new Videojuego("CS GO", 1000);
+        juegos[1] = new Videojuego("Minecraft", 60);
+        juegos[2] = new Videojuego();
+        juegos[3] = new Videojuego();
+        juegos[4] = new Videojuego("God Of War", 60000, "Accion", "Sony");
 
         juegos[2].entregar();
         juegos[3].entregar();
         series[4].entregar();
         series[0].entregar();
-        System.out.println("Series entregadas:"+ contarEntregasSeries(series));
-        System.out.println("Juegos entregados:"+ contarEntregasJuegos(juegos));
+        System.out.println("Series entregadas:" + contarEntregasSeries(series));
+        System.out.println("Juegos entregados:" + contarEntregasJuegos(juegos));
         videojuegoConMasHoras(juegos);
         serieMasLarga(series);
 
     }
-    public static int contarEntregasJuegos(Videojuego juegos[]){
-        int total=0;
-        for (Videojuego juego:juegos) {
-        if(juego.isEntregado()) {
-            total++;
-            System.out.println(juego.getTitulo()+" Juego Entregado");
-        }
-        }
-        return total;
-    }
-    public static int contarEntregasSeries(Series series[]){
-        int total=0;
-        for (Series serie:series) {
-        if(serie.isEntregado()) {
-            total++;
-            System.out.println(serie.getTitulo()+" Serie Entregada");
-        }
+
+    public static int contarEntregasJuegos(Videojuego juegos[]) {
+        int total = 0;
+        for (Videojuego juego : juegos) {
+            if (juego.isEntregado()) {
+                total++;
+                System.out.println(juego.getTitulo() + " Juego Entregado");
+            }
         }
         return total;
-    }
-    public static void videojuegoConMasHoras(Videojuego juegos[]){
-        Videojuego juegomayor=new Videojuego();
-        juegomayor.setHorasestimadas(0);
-        for (Videojuego juego:juegos) {
-            juegomayor=(Videojuego) juegomayor.compareTo(juego);
-        }
-        System.out.println("el juego mas largo es "+juegomayor.toString());
     }
 
-    public static void serieMasLarga(Series series[]){
-        Series serielarga=new Series();
-        serielarga.setNumero_de_temporadas(0);
-        for (Series serie:series) {
-          serielarga=(Series) serielarga.compareTo(serie);
+    public static int contarEntregasSeries(Series series[]) {
+        int total = 0;
+        for (Series serie : series) {
+            if (serie.isEntregado()) {
+                total++;
+                System.out.println(serie.getTitulo() + " Serie Entregada");
+            }
         }
-        System.out.println("la serie mas larga es "+serielarga.toString());
+        return total;
+    }
+
+    public static void videojuegoConMasHoras(Videojuego juegos[]) {
+        Videojuego juegomayor = new Videojuego();
+        juegomayor.setHorasestimadas(0);
+        for (Videojuego juego : juegos) {
+            juegomayor = (Videojuego) juegomayor.compareTo(juego);
+        }
+        System.out.println("el juego mas largo es " + juegomayor.toString());
+    }
+
+    public static void serieMasLarga(Series series[]) {
+        Series serielarga = new Series();
+        serielarga.setNumero_de_temporadas(0);
+        for (Series serie : series) {
+            serielarga = (Series) serielarga.compareTo(serie);
+        }
+        System.out.println("la serie mas larga es " + serielarga.toString());
     }
 
 }
