@@ -10,7 +10,7 @@ import co.sofka.java.Series.Videojuego;
 
 import java.util.Scanner;
 
-public class Clases {
+public class ClasesEjs {
     SeriesyJuegosFunciones seriesYJuegosFunciones= new SeriesyJuegosFunciones();
     public void ejer16() {
         ControladorPersona ctrlPer = new ControladorPersona();

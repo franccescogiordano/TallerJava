@@ -1,4 +1,4 @@
-package co.sofka.java;
+package co.sofka.java.Electrodomesticos;
 
 public class Lavadora extends Electrodomesticos{
     private final int carga;
